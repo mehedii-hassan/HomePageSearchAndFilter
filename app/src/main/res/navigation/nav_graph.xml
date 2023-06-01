@@ -20,4 +20,9 @@
         android:name="com.example.homepagesearchandfilter.ui.fragments.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <dialog
+        android:id="@+id/mapDialogFragment"
+        android:name="com.example.homepagesearchandfilter.ui.fragments.dialogs.MapDialogFragment"
+        android:label="fragment_map_dialog"
+        tools:layout="@layout/fragment_map_dialog" />
 </navigation>

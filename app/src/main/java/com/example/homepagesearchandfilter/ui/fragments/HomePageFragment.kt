@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.example.homepagesearchandfilter.R
 import com.example.homepagesearchandfilter.databinding.FragmentHomePageBinding
+import com.example.homepagesearchandfilter.ui.fragments.dialogs.MapDialogFragment
 
 class HomePageFragment : Fragment() {
 
@@ -28,7 +29,9 @@ class HomePageFragment : Fragment() {
         }
 
         binding.llSearch.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.mapFragment)
+            val dialogFragment = MapDialogFragment()
+            dialogFragment.show(parentFragmentManager, "CustomDialogFragment")
+
         }
     }
 
