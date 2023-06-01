@@ -10,4 +10,14 @@
         android:name="com.example.homepagesearchandfilter.ui.fragments.HomePageFragment"
         android:label="fragment_home_page"
         tools:layout="@layout/fragment_home_page" />
+    <fragment
+        android:id="@+id/selectLocationFragment"
+        android:name="com.example.homepagesearchandfilter.ui.fragments.SelectLocationFragment"
+        android:label="fragment_select_location"
+        tools:layout="@layout/fragment_select_location" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.homepagesearchandfilter.ui.fragments.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>
