@@ -15,14 +15,15 @@
         android:name="com.example.homepagesearchandfilter.ui.fragments.SelectLocationFragment"
         android:label="fragment_select_location"
         tools:layout="@layout/fragment_select_location" />
-    <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.example.homepagesearchandfilter.ui.fragments.MapFragment"
-        android:label="fragment_map"
-        tools:layout="@layout/fragment_map" />
+
     <dialog
         android:id="@+id/mapDialogFragment"
         android:name="com.example.homepagesearchandfilter.ui.fragments.dialogs.MapDialogFragment"
         android:label="fragment_map_dialog"
         tools:layout="@layout/fragment_map_dialog" />
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.example.homepagesearchandfilter.ui.fragments.FilterFragment"
+        android:label="fragment_filter"
+        tools:layout="@layout/fragment_filter" />
 </navigation>
