@@ -35,11 +35,10 @@ class MapDialogFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
 
         binding.llSearch.setOnClickListener {
 
-            Navigation.findNavController(it).navigate(R.id.filterFragment)
+            // Navigation.findNavController(it).navigate(R.id.filterFragment)
         }
         return binding.root
     }
-
 
 
     override fun onMapReady(googleMap: GoogleMap) {
