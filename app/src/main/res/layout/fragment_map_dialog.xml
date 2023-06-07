@@ -125,8 +125,10 @@
                     android:id="@+id/tabLayout"
                     app:tabSelectedTextColor="#040D1B"
                     app:tabTextColor="#758296"
+                    app:tabIndicatorColor="#6EECC7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:tabIndicatorHeight="3dp"
                     android:contentDescription="To do"
                     app:layout_constraintTop_toBottomOf="@+id/llSearch"
                     app:tabMode="scrollable" />
