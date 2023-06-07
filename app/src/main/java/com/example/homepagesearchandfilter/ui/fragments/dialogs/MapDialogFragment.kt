@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DrawableRes
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.homepagesearchandfilter.R
+import com.example.homepagesearchandfilter.adapters.MapItemsAdapter
+import com.example.homepagesearchandfilter.adapters.ViewPagerAdapter
 import com.example.homepagesearchandfilter.databinding.FragmentMapDialogBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -15,13 +19,14 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.tabs.TabLayoutMediator
 
 
-class MapDialogFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
+class MapDialogFragment : BottomSheetDialogFragment() {
 
 
     private lateinit var binding: FragmentMapDialogBinding
-    private lateinit var mMap: GoogleMap
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +34,6 @@ class MapDialogFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
     ): View {
         // initialization
         binding = FragmentMapDialogBinding.inflate(inflater, container, false)
-        val mapFragment = childFragmentManager
-            .findFragmentById(R.id.googleMapId) as SupportMapFragment
-        mapFragment.getMapAsync(this)
 
         binding.llSearch.setOnClickListener {
 
@@ -40,22 +42,31 @@ class MapDialogFragment : BottomSheetDialogFragment(), OnMapReadyCallback {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-    override fun onMapReady(googleMap: GoogleMap) {
+        val adapter = ViewPagerAdapter(requireActivity().supportFragmentManager, lifecycle)
+        binding.viewPager.adapter = adapter
 
-
-        mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(
-            MarkerOptions()
-                .position(sydney)
-                .title("Marker in Sydney")
-        )
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-
-
+        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+            when (position) {
+                0 -> {
+                    tab.text = "All"
+                }
+                1 -> {
+                    tab.text = "Hair"
+                }
+                2 -> {
+                    tab.text = "Nails Care"
+                }
+                3 -> {
+                    tab.text = "Shampo"
+                }
+                4 -> {
+                    tab.text = "All"
+                }
+            }
+        }.attach()
     }
-
 }
+
+

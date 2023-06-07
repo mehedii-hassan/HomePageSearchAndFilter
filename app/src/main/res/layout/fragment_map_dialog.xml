@@ -17,7 +17,8 @@
             android:id="@+id/cvId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentPadding="16dp"
+            app:contentPaddingLeft="15dp"
+            app:contentPaddingRight="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -120,28 +121,28 @@
                     app:layout_constraintTop_toBottomOf="@+id/clLocation" />
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvMapItem"
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    app:tabSelectedTextColor="#040D1B"
+                    app:tabTextColor="#758296"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="To do"
                     app:layout_constraintTop_toBottomOf="@+id/llSearch"
-                    tools:itemCount="8"
-                    tools:listitem="@layout/rv_map_item" />
+                    app:tabMode="scrollable" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/googleMapId"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/cvId"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvId" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
